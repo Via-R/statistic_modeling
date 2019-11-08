@@ -1,0 +1,4 @@
+#!/bin/bash
+
+pyside2-uic dialog.ui -x -o GUI.py 
+
