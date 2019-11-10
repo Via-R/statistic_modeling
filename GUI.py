@@ -3,7 +3,7 @@
 # Form implementation generated from reading ui file 'dialog.ui',
 # licensing of 'dialog.ui' applies.
 #
-# Created: Fri Nov  8 14:05:17 2019
+# Created: Sun Nov 10 19:32:49 2019
 #      by: pyside2-uic  running on PySide2 5.13.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -13,7 +13,7 @@ from PySide2 import QtCore, QtGui, QtWidgets
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
-        Dialog.resize(400, 300)
+        Dialog.resize(400, 320)
         self.Y_func = QtWidgets.QLineEdit(Dialog)
         self.Y_func.setGeometry(QtCore.QRect(20, 210, 361, 25))
         self.Y_func.setObjectName("Y_func")
@@ -42,14 +42,18 @@ class Ui_Dialog(object):
         self.Tip.setGeometry(QtCore.QRect(30, 20, 331, 51))
         self.Tip.setObjectName("Tip")
         self.Submit = QtWidgets.QPushButton(Dialog)
-        self.Submit.setGeometry(QtCore.QRect(140, 260, 89, 25))
+        self.Submit.setGeometry(QtCore.QRect(160, 280, 89, 25))
         self.Submit.setObjectName("Submit")
+        self.Error = QtWidgets.QLabel(Dialog)
+        self.Error.setGeometry(QtCore.QRect(20, 250, 361, 20))
+        self.Error.setText("")
+        self.Error.setObjectName("Error")
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
 
     def retranslateUi(self, Dialog):
-        Dialog.setWindowTitle(QtWidgets.QApplication.translate("Dialog", "Dialog", None, -1))
+        Dialog.setWindowTitle(QtWidgets.QApplication.translate("Dialog", "Input info for modeling calculations", None, -1))
         self.Y_func_label.setText(QtWidgets.QApplication.translate("Dialog", "Y function", None, -1))
         self.X1_label.setText(QtWidgets.QApplication.translate("Dialog", "X1 absolute limit", None, -1))
         self.X2_label.setText(QtWidgets.QApplication.translate("Dialog", "X2 absolute limit", None, -1))

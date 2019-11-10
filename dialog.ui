@@ -7,11 +7,11 @@
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>300</height>
+    <height>320</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Input info for modeling calculations</string>
   </property>
   <widget class="QLineEdit" name="Y_func">
    <property name="geometry">
@@ -121,14 +121,27 @@
   <widget class="QPushButton" name="Submit">
    <property name="geometry">
     <rect>
-     <x>140</x>
-     <y>260</y>
+     <x>160</x>
+     <y>280</y>
      <width>89</width>
      <height>25</height>
     </rect>
    </property>
    <property name="text">
     <string>Submit</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="Error">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>250</y>
+     <width>361</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
    </property>
   </widget>
  </widget>
