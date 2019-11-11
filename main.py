@@ -1,8 +1,10 @@
 import sys, GUI, cexprtk
 
 def on_submit():
-    y_func = UI.Y_func.text()
+    y_func = UI.Y_func.text().replace(" ", "")
     s = map(lambda i: float(i.text().replace(",", ".")), [UI.X1, UI.X2, UI.T])
+    G = str(UI.G_func.currentText()).replace(" ", "")
+    L = str(UI.L_eq.currentText()).replace(" ", "")
     #float(UI.X1.text().replace(",", "."))
     s = "{} {} {}".format(*s)
     try:
@@ -14,6 +16,10 @@ def on_submit():
             f.write(y_func)
         with open("s.txt", "w+") as f:
             f.write(s)
+        with open("G.txt", "w+") as f:
+            f.write(G)
+        with open("L_eq.txt", "w+") as f:
+            f.write(L)
         Dialog.close()
 
 def set_callbacks():

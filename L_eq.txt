@@ -1,0 +1,1 @@
+diff(y(x1,x2,t),t,t)-c^2*(diff(y(x1,x2,t),x1,x1)+diff(y(x1,x2,t),x2,x2))

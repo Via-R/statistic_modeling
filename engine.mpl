@@ -1,172 +1,113 @@
 
-                            restart;
-
-                     writeto("output.txt");
-             Scoloneqreaddata("s.txt",float, 3)[1];
-X1coloneqS[1];  X2coloneqS[2];  TcoloneqS[3];    Y_strcoloneq
-
-  parse(readdata("y.txt",string, 3)[1][1], statement);  ycoloneq
-
-  unapply(Y_str,x1,x2,t);  y(0,0,42);  
-                                /         2                     
-                                | PartialD                 2    
-     ccoloneq1;  Lcolonequnapply|----------- y(x1,x2,t) - c sdot
-                                |          2                    
-                                \PartialD t                     
-
-  /         2                       2             \        \    
-  | PartialD                PartialD              |        |    
-  |------------ y(x1,x2,t)+------------ y(x1,x2,t)|,x1,x2,t|;  u
-  |           2                       2           |        |    
-  \PartialD x1             PartialD x2            /        /    
-
-  coloneq(x1,x2,t)srarrL(x1,x2,t);  u(0.5,0.5,0.5);    Gcoloneq(
-
-                        /               2   2   
-  x1,x2,t)srarrpiecewise|csdottuminus0x1 +x2 >0,
-                        |                       
-                        \                       
-
-                  1                   \    /  1    \             
-  ----------------------------------,0|;  G|0,-,0.3|;  y(1,1,1); 
-                  / 2 2   /  2   2\\  |    \  5    /             
-  Pisdot2sdotcsdot\c t  - \x1 +x2 //  /                          
-
-   u(12,uminus01,12);      
-
-                                 
-#with(plots):  #animate3d(y(x1,x2,t),x1=uminus0X1..X1,x2=uminus0
-
-  X2..X2,t=0..1,color=sin(x1sdotx2));
-                                   /[[1 1  ] [1 1  ] [1 1  ] [1 1
-#￐﾿￐ﾾ￑ﾇ￐ﾰ￑ﾂ￐ﾺ￐ﾾ￐ﾲ￑ﾖ ￑ﾃ￐ﾼ￐ﾾ￐ﾲ￐ﾸ  Y0rlcoloneqMatrix|[[-,-,0],[-,-,0],[-,-,0],[-,-
-                                   \[[2 2  ] [3 3  ] [4 4  ] [5 5
-
-    ] [1 1  ]]\                                                  
-  ,0],[-,-,0]]|; L0coloneq5;  Y0icoloneqVector(5):  for i from 1 
-    ] [6 6  ]]/                                                  
-
-  to 5 do:  Y0i[i]coloneqy(Y0rl[i,1],Y0rl[i,2],Y0rl[i,3]);od;
-                                  /[[1   1] [    1] [  1 1] [1   
-#￐ﾳ￑ﾀ￐ﾰ￐ﾽ￐ﾸ￑ﾇ￐ﾽ￑ﾖ ￑ﾃ￐ﾼ￐ﾾ￐ﾲ￐ﾸ  YGrlcoloneqMatrix|[[-,1,-],[0,0,-],[0,-,-],[-,0,
-                                  \[[2   7] [    2] [  3 5] [2   
-
-  1] [  1 1]]\                                                   
-  -],[0,-,-]]|;   LGcoloneq5;  YGicoloneqVector(5):  for i from 1
-  4] [  2 8]]/                                                   
-
-   to 5 do:  YGi[i]coloneqevalf(y(YGrl[i,1],YGrl[i,2],YGrl[i,3]))
-
-  ;od;  
-                /[[1 1         ] [1 1         ]]\                
-Sm0coloneqMatrix|[[-,-,uminus01],[-,-,uminus02]]|;  M0coloneq2;  
-                \[[2 2         ] [3 3         ]]/                
-
-                  /[[        1] [             1]]\              
-  SmGcoloneqMatrix|[[1.1,1.5,-],[uminus00.5,2,-]]|;  MGcoloneq2;
-                  \[[        2] [             2]]/              
+restart;
+writeto(terminal);
+NULL;
+S := readdata("s.txt", float, 3)[1];
+X1 := S[1];
+X2 := S[2];
+T := S[3];
+Y_str := parse(readdata("y.txt", string, 3)[1][1], statement);
+y := unapply(Y_str, x1, x2, t);
+y(0, 0, 42);
+L_str := parse(readdata("L_eq.txt", string, 100)[1][1], statement);
+G_str := parse(readdata("G.txt", string, 100)[1][1], statement);
+c := 1;
+L := unapply(L_str, x1, x2, t);
+u := (x1, x2, t) -> L(x1, x2, t);
+G := unapply(G_str, x1, x2, t);
 ;
+u(0.5, 0.5, 0.5);
+G(0, 1/5, 0.3);
+y(0, 0, 42);
 
-yIcoloneq0;  for i1 from 1 to 10 do  for i2 from 1 to 10 do   for
+plotsetup(maplet);
+with(plots);
+animate3d(y(x1, x2, t), x1 = -X1 .. X1, x2 = -X2 .. X2, t = 0 .. 1, color = sin(x1*x2));
+Y0rl := Matrix([[1/2, 1/2, 0], [1/3, 1/3, 0], [1/4, 1/4, 0], [1/5, 1/5, 0], [1/6, 1/6, 0]]);
+L0 := 5;
+Y0i := Vector(5);
+for i to 5 do
+    Y0i[i] := y(Y0rl[i, 1], Y0rl[i, 2], Y0rl[i, 3]);
+end do;
+YGrl := Matrix([[1/2, 1, 1/7], [0, 0, 1/2], [0, 1/3, 1/5], [1/2, 0, 1/4], [0, 1/2, 1/8]]);
+LG := 5;
+YGi := Vector(5);
+for i to 5 do
+    YGi[i] := evalf(y(YGrl[i, 1], YGrl[i, 2], YGrl[i, 3]));
+end do;
+Sm0 := Matrix([[1/2, 1/2, -1], [1/3, 1/3, -2]]);
+M0 := 2;
+SmG := Matrix([[1.1, 1.5, 1/2], [-0.5, 2, 1/2]]);
+MG := 2;
 
-                                          /      2   /    2     2
-                                          | 2/i3\    |/i1\  /i2\ 
-   i3 from 1 to 10 do  yI1coloneqpiecewise|c |--|  - ||--| +|--| 
-                                          |  \10/    \\10/  \10/ 
-                                          |                      
-                                          |                      
-                                          \                      
-
-  \    
-  |    
-  |ne0,
-  /    
-
-                                   1                                 
-  -------------------------------------------------------------------
-                  /              2   /             2              2\\
-                  | 2/        i3\    |/         i1\  /         i2\ ||
-  Pisdot2sdotcsdot|c |tuminus0--|  - ||x1uminus0--| +|x2uminus0--| ||
-                  \  \        10/    \\         10/  \         10/ //
-
-                            \                                    
-       /i1 i2 i3\           |                                    
-  sdotL|--,--,--|sdot0.001,0|;  yIcoloneqyI+yI1:  od;  od;  od;  
-       \10 10 10/           |                                    
-                            |                                    
-                            |                                    
-                            /                                    
-
-  yInfcolonequnapply(yI,x1,x2,t):  evalf(yInf(0,0.65,0.3));
-Y0coloneqVector(L0);  for l from 1 to L0 do:  Y0[l]coloneqY0i[l]
-
-   - evalf(yInf(Y0rl[l,1],Y0rl[l,2],Y0rl[l,3]));  od;
-YGcoloneqVector(LG);  for l from 1 to LG do:  YG[l]coloneqYGi[l]
-
-   - evalf(yInf(YGrl[l,1],YGrl[l,2],YGrl[l,3]));  od;
-YbarcoloneqVector(L0+LG):  for i from 1 to L0 do:  Ybar[i]coloneq
-
-  Y0[i];  od;  for i from 1 to LG do:  Ybar[L0+i]coloneqYG[i];  
-
-  od;
-A11coloneqMatrix(L0,M0):  AcoloneqMatrix(L0+LG,M0+MG):  for i 
-
-  from 1 to L0 do:  for j from 1 to M0 do:  A11[i,j]coloneqevalf(
-
-  G(Y0rl[i,1] - Sm0[j,1],Y0rl[i,2] - Sm0[j,2],Y0rl[i,3] - Sm0[j,3
-
-  ]));  A[i,j]coloneqA11[i,j];  od;  od;  A11;
-A12coloneqMatrix(L0,MG):  for i from 1 to L0 do:  for j from 1 to
-
-   MG do:  A12[i,j]coloneqevalf(G(Y0rl[i,1] - SmG[j,1],Y0rl[i,2]
-
-   - SmG[j,2],Y0rl[i,3] - SmG[j,3]));  A[i,j+M0]coloneqA12[i,j]; 
-
-   od;  od;  icoloneq2;jcoloneq1;   A12[i,j]coloneqevalf(G(Y0rl[i
-
-  ,1] - SmG[j,1],Y0rl[i,2] - SmG[j,2],Y0rl[i,3] - SmG[j,3]));  
-
-  A12;
-A21coloneqMatrix(LG,M0):  for i from 1 to LG do:  for j from 1 to
-
-   M0 do:  A21[i,j]coloneqevalf(G(YGrl[i,1] - Sm0[j,1],YGrl[i,2]
-
-   - Sm0[j,2],YGrl[i,3] - Sm0[j,3]));  A[L0+i,j]coloneqA21[i,j]; 
-
-   od;  od;  A21;
-A22coloneqMatrix(LG,MG):  for i from 1 to LG do:  for j from 1 to
-
-   MG do:  A22[i,j]coloneqevalf(G(YGrl[i,1] - SmG[j,1],YGrl[i,2]
-
-   - SmG[j,2],YGrl[i,3] - SmG[j,3]));  A[i+L0,j+M0]coloneqA22[i,j
-
-  ];  od;  od;  A22;
-                               A;
+yI := 0;
+for i1 to 10 do
+    for i2 to 10 do for i3 to 10 do yI1 := piecewise(c(i3/10)^4 + (-(i1/10)^2 - (i2/10)^2) <> 0, 0.001*1/(2*Pi*c*(c(t - i3/10)^4 + (-(x1 - i1/10)^2 - (x2 - i2/10)^2)))*L(i1/10, i2/10, i3/10), 0); yI := yI + yI1; end do; end do;
+end do;
+yInf := unapply(yI, x1, x2, t);
+evalf(yInf(0, 0.65, 0.3));
+Y0 := Vector(L0);
+for l to L0 do
+    Y0[l] := Y0i[l] - evalf(yInf(Y0rl[l, 1], Y0rl[l, 2], Y0rl[l, 3]));
+end do;
+YG := Vector(LG);
+for l to LG do
+    YG[l] := YGi[l] - evalf(yInf(YGrl[l, 1], YGrl[l, 2], YGrl[l, 3]));
+end do;
+Ybar := Vector(L0 + LG);
+for i to L0 do
+    Ybar[i] := Y0[i];
+end do;
+for i to LG do
+    Ybar[L0 + i] := YG[i];
+end do;
+A11 := Matrix(L0, M0);
+A := Matrix(L0 + LG, M0 + MG);
+for i to L0 do
+    for j to M0 do A11[i, j] := evalf(G(Y0rl[i, 1] - Sm0[j, 1], Y0rl[i, 2] - Sm0[j, 2], Y0rl[i, 3] - Sm0[j, 3])); A[i, j] := A11[i, j]; end do;
+end do;
+A11;
+A12 := Matrix(L0, MG);
+for i to L0 do
+    for j to MG do A12[i, j] := evalf(G(Y0rl[i, 1] - SmG[j, 1], Y0rl[i, 2] - SmG[j, 2], Y0rl[i, 3] - SmG[j, 3])); A[i, j + M0] := A12[i, j]; end do;
+end do;
+i := 2;
+j := 1;
+A12[i, j] := evalf(G(Y0rl[i, 1] - SmG[j, 1], Y0rl[i, 2] - SmG[j, 2], Y0rl[i, 3] - SmG[j, 3]));
+A12;
+A21 := Matrix(LG, M0);
+for i to LG do
+    for j to M0 do A21[i, j] := evalf(G(YGrl[i, 1] - Sm0[j, 1], YGrl[i, 2] - Sm0[j, 2], YGrl[i, 3] - Sm0[j, 3])); A[L0 + i, j] := A21[i, j]; end do;
+end do;
+A21;
+A22 := Matrix(LG, MG);
+for i to LG do
+    for j to MG do A22[i, j] := evalf(G(YGrl[i, 1] - SmG[j, 1], YGrl[i, 2] - SmG[j, 2], YGrl[i, 3] - SmG[j, 3])); A[i + L0, j + M0] := A22[i, j]; end do;
+end do;
+A22;
+A;
 # Псевдообернена:
-     with(LinearAlgebra);  AtcoloneqMultiply(Transpose(A),
+with(LinearAlgebra);
+At := Multiply(Transpose(A), MatrixInverse(Multiply(A, Transpose(A))));
+ufinal := Multiply(At, Ybar);
+u0 := Vector(M0);
+y0 := 0;
+for i to M0 do
+    u0[i] := ufinal[i];
+end do;
+for i to M0 do
+    y0 := y0 + G(x1 - Sm0[i, 1], x2 - Sm0[i, 2], t - Sm0[i, 3])*u0[i];
+end do;
+uG := Vector(MG);
+for i to MG do
+    uG[i] := ufinal[M0 + i];
+end do;
+yG := 0;
+for i to MG do
+    yG := yG + G(x1 - SmG[i, 1], x2 - SmG[i, 2], t - SmG[i, 3])*uG[i];
+end do;
+yfinal := unapply(evalf(yInf(x1, x2, t) + y0 + yG), x1, x2, t);
 
-       MatrixInverse(Multiply(A,Transpose(A))));  
-                ufinalcoloneqMultiply(At,Ybar);
-u0coloneqVector(M0);  y0coloneq0;  for i from 1 to M0 do:  u0[i]
-
-  colonequfinal[i];   od;  for i from 1 to M0 do:  y0coloneqy0+G
-
-  (x1 - Sm0[i,1],x2 - Sm0[i,2],t - Sm0[i,3])sdotu0[i]:  od:  #
-
-  y0￢ﾉﾔunapply(y0,x1,x2,t);  
-uGcoloneqVector(MG);  for i from 1 to MG do:  uG[i]colonequfinal
-
-  [M0+i];  od;  yGcoloneq0;  for i from 1 to MG do:  yGcoloneqyG+
-
-  G(x1 - SmG[i,1],x2 - SmG[i,2],t - SmG[i,3])sdotuG[i]:  od: #
-
-   yG￢ﾉﾔunapply(yG,x1,x2,t);  
-                     /(evalf(yInf(x1,x2,t)+y0+yG))        \   
- yfinalcolonequnapply|----------------------------,x1,x2,t|;  
-                     \             1                      /   
-
-   yfinal;
- #animate3d(yfinal(x1,x2,t),x1=uminus0X1..X1,x2=uminus0X2..X2,t=0
-
-  ..1,color=sin(x1sdotx2));
+save yfinal, "y_final.log";
+animate3d(yfinal(x1, x2, t), x1 = -X1 .. X1, x2 = -X2 .. X2, t = 0 .. T, color = sin(x1*x2));
 

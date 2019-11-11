@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>320</height>
+    <height>458</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -21,6 +21,9 @@
      <width>361</width>
      <height>25</height>
     </rect>
+   </property>
+   <property name="text">
+    <string>cos(Pi*x1/2)*cos(Pi*x2/2)*t</string>
    </property>
   </widget>
   <widget class="QLabel" name="Y_func_label">
@@ -84,6 +87,9 @@
      <height>26</height>
     </rect>
    </property>
+   <property name="value">
+    <double>1.000000000000000</double>
+   </property>
   </widget>
   <widget class="QDoubleSpinBox" name="X2">
    <property name="geometry">
@@ -94,6 +100,9 @@
      <height>26</height>
     </rect>
    </property>
+   <property name="value">
+    <double>1.000000000000000</double>
+   </property>
   </widget>
   <widget class="QDoubleSpinBox" name="T">
    <property name="geometry">
@@ -103,6 +112,9 @@
      <width>69</width>
      <height>26</height>
     </rect>
+   </property>
+   <property name="value">
+    <double>1.000000000000000</double>
    </property>
   </widget>
   <widget class="QLabel" name="Tip">
@@ -121,8 +133,8 @@
   <widget class="QPushButton" name="Submit">
    <property name="geometry">
     <rect>
-     <x>160</x>
-     <y>280</y>
+     <x>150</x>
+     <y>420</y>
      <width>89</width>
      <height>25</height>
     </rect>
@@ -135,13 +147,69 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>250</y>
+     <y>390</y>
      <width>361</width>
      <height>20</height>
     </rect>
    </property>
    <property name="text">
     <string/>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="L_eq">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>280</y>
+     <width>361</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>diff(y(x1, x2, t), t, t) - c^2*(diff(y(x1, x2, t), x1, x1) + diff(y(x1, x2, t), x2, x2))</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="L_eq_label">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>250</y>
+     <width>181</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Main differential equation</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="G_func">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>350</y>
+     <width>361</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>piecewise(0 &lt; c*t - sqrt(x1^2 + x2^2), 1/(2*Pi*c*(c^2*t^2 + (-x1^2 - x2^2))), 0)</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="G_func_label">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>320</y>
+     <width>81</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>G function</string>
    </property>
   </widget>
  </widget>

@@ -1,0 +1,8 @@
+Y
+cos(Pi*x1/2)*cos(Pi*x2/2)*t
+
+L
+diff(y(x1, x2, t), t, t) - c^2*(diff(y(x1, x2, t), x1, x1) + diff(y(x1, x2, t), x2, x2))
+
+G
+piecewise(0 < c*t - sqrt(x1^2 + x2^2), 1/(2*Pi*c*(c^2*t^2 + (-x1^2 - x2^2))), 0)
