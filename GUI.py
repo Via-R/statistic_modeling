@@ -3,7 +3,7 @@
 # Form implementation generated from reading ui file 'dialog.ui',
 # licensing of 'dialog.ui' applies.
 #
-# Created: Mon Nov 11 18:42:11 2019
+# Created: Thu Nov 14 11:45:57 2019
 #      by: pyside2-uic  running on PySide2 5.13.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -42,7 +42,7 @@ class Ui_Dialog(object):
         self.T.setProperty("value", 1.0)
         self.T.setObjectName("T")
         self.Tip = QtWidgets.QLabel(Dialog)
-        self.Tip.setGeometry(QtCore.QRect(30, 20, 331, 51))
+        self.Tip.setGeometry(QtCore.QRect(30, 20, 341, 51))
         self.Tip.setObjectName("Tip")
         self.Submit = QtWidgets.QPushButton(Dialog)
         self.Submit.setGeometry(QtCore.QRect(150, 420, 89, 25))
@@ -56,7 +56,7 @@ class Ui_Dialog(object):
         self.L_eq.setObjectName("L_eq")
         self.L_eq.addItem("")
         self.L_eq_label = QtWidgets.QLabel(Dialog)
-        self.L_eq_label.setGeometry(QtCore.QRect(20, 250, 181, 17))
+        self.L_eq_label.setGeometry(QtCore.QRect(20, 250, 251, 17))
         self.L_eq_label.setObjectName("L_eq_label")
         self.G_func = QtWidgets.QComboBox(Dialog)
         self.G_func.setGeometry(QtCore.QRect(20, 350, 361, 25))
@@ -72,16 +72,16 @@ class Ui_Dialog(object):
     def retranslateUi(self, Dialog):
         Dialog.setWindowTitle(QtWidgets.QApplication.translate("Dialog", "Input info for modeling calculations", None, -1))
         self.Y_func.setText(QtWidgets.QApplication.translate("Dialog", "cos(Pi*x1/2)*cos(Pi*x2/2)*t", None, -1))
-        self.Y_func_label.setText(QtWidgets.QApplication.translate("Dialog", "Y function", None, -1))
-        self.X1_label.setText(QtWidgets.QApplication.translate("Dialog", "X1 absolute limit", None, -1))
-        self.X2_label.setText(QtWidgets.QApplication.translate("Dialog", "X2 absolute limit", None, -1))
-        self.T_label.setText(QtWidgets.QApplication.translate("Dialog", "T", None, -1))
-        self.Tip.setText(QtWidgets.QApplication.translate("Dialog", "Enter the calculation info for the discrete system", None, -1))
-        self.Submit.setText(QtWidgets.QApplication.translate("Dialog", "Submit", None, -1))
+        self.Y_func_label.setText(QtWidgets.QApplication.translate("Dialog", "Функція Y", None, -1))
+        self.X1_label.setText(QtWidgets.QApplication.translate("Dialog", "Межа X1", None, -1))
+        self.X2_label.setText(QtWidgets.QApplication.translate("Dialog", "Межа X2", None, -1))
+        self.T_label.setText(QtWidgets.QApplication.translate("Dialog", "Межа T", None, -1))
+        self.Tip.setText(QtWidgets.QApplication.translate("Dialog", "Введіть початкові дані для дискретної системи", None, -1))
+        self.Submit.setText(QtWidgets.QApplication.translate("Dialog", "ОК", None, -1))
         self.L_eq.setItemText(0, QtWidgets.QApplication.translate("Dialog", "diff(y(x1, x2, t), t, t) - c^2*(diff(y(x1, x2, t), x1, x1) + diff(y(x1, x2, t), x2, x2))", None, -1))
-        self.L_eq_label.setText(QtWidgets.QApplication.translate("Dialog", "Main differential equation", None, -1))
+        self.L_eq_label.setText(QtWidgets.QApplication.translate("Dialog", "Основне діференціальне рівняння", None, -1))
         self.G_func.setItemText(0, QtWidgets.QApplication.translate("Dialog", "piecewise(0 < c*t - sqrt(x1^2 + x2^2), 1/(2*Pi*c*(c^2*t^2 + (-x1^2 - x2^2))), 0)", None, -1))
-        self.G_func_label.setText(QtWidgets.QApplication.translate("Dialog", "G function", None, -1))
+        self.G_func_label.setText(QtWidgets.QApplication.translate("Dialog", "Функція G", None, -1))
 
 
 if __name__ == "__main__":

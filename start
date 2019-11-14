@@ -4,8 +4,7 @@ python3 main.py
 
 exec > output.log 2>&1
 
-maple engine.mpl
-
-exec > /dev/tty 2>&1
-
-#python3 finalize.py
+if [[ "$(cat proceed.txt)" == "1" ]]; then
+    maple engine.mpl
+    exec > /dev/tty 2>&1
+fi

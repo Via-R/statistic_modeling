@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Input info for modeling calculations</string>
+   <string>Введення початкових даних</string>
   </property>
   <widget class="QLineEdit" name="Y_func">
    <property name="geometry">
@@ -36,7 +36,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>Y function</string>
+    <string>Функція Y</string>
    </property>
   </widget>
   <widget class="QLabel" name="X1_label">
@@ -49,7 +49,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>X1 absolute limit</string>
+    <string>Межа X1</string>
    </property>
   </widget>
   <widget class="QLabel" name="X2_label">
@@ -62,7 +62,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>X2 absolute limit</string>
+    <string>Межа X2</string>
    </property>
   </widget>
   <widget class="QLabel" name="T_label">
@@ -75,7 +75,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>T</string>
+    <string>Межа T</string>
    </property>
   </widget>
   <widget class="QDoubleSpinBox" name="X1">
@@ -122,12 +122,12 @@
     <rect>
      <x>30</x>
      <y>20</y>
-     <width>331</width>
+     <width>341</width>
      <height>51</height>
     </rect>
    </property>
    <property name="text">
-    <string>Enter the calculation info for the discrete system</string>
+    <string>Введіть початкові дані для дискретної системи</string>
    </property>
   </widget>
   <widget class="QPushButton" name="Submit">
@@ -140,7 +140,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>Submit</string>
+    <string>ОК</string>
    </property>
   </widget>
   <widget class="QLabel" name="Error">
@@ -176,12 +176,12 @@
     <rect>
      <x>20</x>
      <y>250</y>
-     <width>181</width>
+     <width>251</width>
      <height>17</height>
     </rect>
    </property>
    <property name="text">
-    <string>Main differential equation</string>
+    <string>Основне діференціальне рівняння</string>
    </property>
   </widget>
   <widget class="QComboBox" name="G_func">
@@ -209,7 +209,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>G function</string>
+    <string>Функція G</string>
    </property>
   </widget>
  </widget>

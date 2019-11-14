@@ -10,16 +10,20 @@ def on_submit():
     try:
         cexprtk.check_expression(y_func)
     except:
-        UI.Error.setText("Expression is invalid")
+        UI.Error.setText("Функція введена некоректно, спробуйте ще раз")
     else:
-        with open("y.txt", "w+") as f:
+        with open("y.txt", "w") as f:
             f.write(y_func)
-        with open("s.txt", "w+") as f:
+        with open("s.txt", "w") as f:
             f.write(s)
-        with open("G.txt", "w+") as f:
+        with open("G.txt", "w") as f:
             f.write(G)
-        with open("L_eq.txt", "w+") as f:
+        with open("L_eq.txt", "w") as f:
             f.write(L)
+
+        with open("proceed.txt", "w") as f:
+            f.write("1")
+
         Dialog.close()
 
 def set_callbacks():
@@ -27,6 +31,9 @@ def set_callbacks():
     
 
 if __name__ == "__main__":
+    with open("proceed.txt", "w") as f:
+        f.write("0")
+
     global Dialog, UI
 
     app = GUI.QtWidgets.QApplication(sys.argv)
